@@ -336,8 +336,9 @@ fi
 #vimpm ()      { vim `perldoc -l $1 | sed -e 's/pod$/pm/'` }
 #vimhelp ()    { vim -c "help $1" -c on -c "au! VimEnter *" }
 
-
+### ALIASES ###
 # Add 'config' alias for 'dotfiles' bare git repo
 alias config='/usr/bin/git --git-dir=/home/secrettux/.cfg/ --work-tree=/home/secrettux'
+### /ALIASES ###
 
 ## END OF FILE #################################################################
