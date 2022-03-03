@@ -37,6 +37,7 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 #from libqtile.utils import guess_terminal
 
+
 # default variables
 mod = "mod4"
 home_dir = os.path.expanduser("~")
@@ -126,12 +127,12 @@ layout_theme = {
 layouts = [
     layout.MonadTall(**layout_theme),
     layout.Max(**layout_theme),
-    layout.Floating(**layout_theme),
-    layout.Stack(num_stacks=2, **layout_theme),
-    layout.Bsp(**layout_theme),
     layout.Tile(**layout_theme),
 
     # Try more layouts by unleashing below layouts.
+    # layout.Floating(**layout_theme),
+    # layout.Stack(num_stacks=2, **layout_theme),
+    # layout.Bsp(**layout_theme),
     # layout.Columns(**layout_theme),
     # layout.Matrix(**layout_theme),
     # layout.MonadWide(**layout_theme),
@@ -144,37 +145,45 @@ layouts = [
 
 # colors for the bar/widgets/panel
 def init_colors():
-    return [["#282a36", "#282a36"], # color 0 | bg
-            ["#282a36", "#282a36"], # color 1 | bg
-            ["#f8f8f2", "#f8f8f2"], # color 2 | fg
-            ["#ff5555", "#ff5555"], # color 3 | red
-            ["#50fa7b", "#50fa7b"], # color 4 | green
-            ["#f1fa8c", "#f1fa8c"], # color 5 | yellow
-            ["#bd93f9", "#bd93f9"], # color 6 | blue
-            ["#ff79c6", "#ff79c6"], # color 7 | magenta
-            ["#8be9fd", "#8be9fd"], # color 8 | cyan
-            ["#bbbbbb", "#bbbbbb"]] # color 9 | white
+    return [
+        ["#282a36", "#282a36"], # color 0 | bg
+        ["#282a36", "#282a36"], # color 1 | bg
+        ["#f8f8f2", "#f8f8f2"], # color 2 | fg
+        ["#ff5555", "#ff5555"], # color 3 | red
+        ["#50fa7b", "#50fa7b"], # color 4 | green
+        ["#f1fa8c", "#f1fa8c"], # color 5 | yellow
+        ["#bd93f9", "#bd93f9"], # color 6 | blue
+        ["#ff79c6", "#ff79c6"], # color 7 | magenta
+        ["#8be9fd", "#8be9fd"], # color 8 | cyan
+        ["#bbbbbb", "#bbbbbb"]  # color 9 | white
+    ]
+
 
 def init_separator():
     return widget.Sep(
-                size_percent = 60,
-                margin = 5,
-                linewidth = 2,
-                background = colors[1],
-                foreground = "#555555")
+        size_percent = 60,
+        margin = 5,
+        linewidth = 2,
+        background = colors[1],
+        foreground = "#555555"
+    )
+
 
 def nerd_icon(nerdfont_icon, fg_color):
     return widget.TextBox(
-                font = "Iosevka Nerd Font",
-                fontsize = 15,
-                text = nerdfont_icon,
-                foreground = fg_color,
-                background = colors[1])
+        font = "Iosevka Nerd Font",
+        fontsize = 15,
+        text = nerdfont_icon,
+        foreground = fg_color,
+        background = colors[1]
+    )
+
 
 def init_edge_spacer():
     return widget.Spacer(
-                length = 5,
-                background = colors[1])
+        length = 5,
+        background = colors[1]
+    )
 
 
 colors = init_colors()
