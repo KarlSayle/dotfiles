@@ -113,13 +113,14 @@ for i, (name, kwargs) in enumerate(group_names, 1):
     keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name))) # Send current window to another group
 
 ##### DEFAULT THEME SETTINGS FOR LAYOUTS #####
-layout_theme = {"border_width": 3,
-                "margin": 15,
-                "font": "Source Code Pro Medium",
-                "font_size": 10,
-                "border_focus": "#bd93f9",
-                "border_normal": "#555555"
-                }
+layout_theme = {
+    "border_width": 3,
+    "margin": 10,
+    "font": "DejaVu Sans",
+    "font_size": 10,
+    "border_focus": "#bd93f9",
+    "border_normal": "#555555"
+}
 
 # window layouts
 layouts = [
