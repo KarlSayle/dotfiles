@@ -62,7 +62,7 @@ keys = [
         desc="Move window down"),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
 
-    # Grow windows. If current window is on the edge of screen and direction
+    #jGrow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
     Key([mod, "control"], "h", lazy.layout.grow_left(),
         desc="Grow window to the left"),
@@ -85,6 +85,9 @@ keys = [
 
     Key(["control", "shift"], "r", lazy.restart(), desc="Restart Qtile"),
     Key(["control", "shift"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+
+    # Apps
+    Key([mod, "shift"], "e", lazy.spawn("emacsclient -c -a emacs"), desc='Doom Emacs'),
 ]
 
 # custom workspace names and initialization
@@ -93,9 +96,9 @@ class Groupings:
     def init_group_names(self):
         return [
             ("", {"layout": "monadtall"}),     # Web Browser
+            ("", {"layout": "monadtall"}),     # Text Editor
             ("", {"layout": "monadtall"}),     # Terminals
             ("", {"layout": "monadtall"}),     # File Manager
-            ("", {"layout": "monadtall"}),     # Text Editor
             ("", {"layout": "monadtall"}),     # Media
             ("", {"layout": "monadtall"}),     # Music/Audio
             ("漣", {"layout": "monadtall"})     # Settings
@@ -387,9 +390,9 @@ def assign_app_group(client):
 
     # assign deez apps
     d[group_names[0][0]] = ['Navigator', 'discord', 'brave-browser', 'midori', 'qutebrowser']
-    d[group_names[1][0]] = ['Alacritty', 'xfce4-terminal']
-    d[group_names[2][0]] = ['pcmanfm', 'thunar']
-    d[group_names[3][0]] = ['code', 'geany']
+    d[group_names[1][0]] = ['code', 'geany', 'emacs', 'emacsclient']
+    d[group_names[2][0]] = ['Alacritty', 'xfce4-terminal']
+    d[group_names[3][0]] = ['pcmanfm', 'thunar']
     d[group_names[4][0]] = ['vlc', 'obs', 'mpv', 'mplayer', 'lxmusic', 'gimp']
     d[group_names[5][0]] = ['spotify']
     d[group_names[6][0]] = ['lxappearance', 'gpartedbin', 'lxtask', 'lxrandr', 'arandr', 'pavucontrol', 'xfce4-settings-manager']
