@@ -88,6 +88,7 @@ keys = [
 
     # Apps
     Key([mod, "shift"], "e", lazy.spawn("emacsclient -c -a emacs"), desc='Doom Emacs'),
+    Key([mod, "shift"], "c", lazy.spawn("code"), desc='VS Code'),
 ]
 
 # custom workspace names and initialization
