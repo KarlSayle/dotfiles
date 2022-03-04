@@ -120,7 +120,7 @@ for i, (name, kwargs) in enumerate(group_names, 1):
 ##### DEFAULT THEME SETTINGS FOR LAYOUTS #####
 layout_theme = {
     "border_width": 1,
-    "margin": 10,
+    "margin": 5,
     "font": "DejaVu Sans",
     "font_size": 10,
     "border_focus": "#bd93f9",
@@ -323,12 +323,25 @@ def init_widgets_list():
             length = bar.STRETCH,
             background = colors[1]
         ),
+         nerd_icon(
+             "",
+             colors[9]
+         ),
+        widget.CheckUpdates(
+            background = colors[1],
+            update_interval = 1800,
+            distro = "Arch",
+            display_format = "Updates: {updates}",
+            colour_have_updates = colors[5],
+            colour_no_updates = colors[9],
+            mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e sudo pacman -Syu')},
+        ),
         nerd_icon(
             "",
             colors[9]
         ),
         widget.Net(
-            format = "{down} ↓↑ {up}",
+            format = "{down} ↓↑{up}",
             foreground = colors[2],
             background = colors[1],
             update_interval = 2,
@@ -351,6 +364,10 @@ def init_widgets_list():
             background = colors[1],
             format = "{percent:2.0%}"
         ),
+        widget.Notify(
+            foreground = colors[2],
+            background = colors[1],
+        ),
         widget.Systray(
             background = colors[1]
         ),
@@ -364,9 +381,9 @@ def init_screens():
     return [
         Screen(top=bar.Bar(
             widgets=init_widgets_list(),
-            size=35,
+            size=30,
             opacity=0.9,
-            margin=[5,10,0,10]
+            margin=[0, 0, 0, -5]
         ))
     ]
 
